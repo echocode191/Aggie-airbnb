@@ -76,7 +76,7 @@ const Gallery = () => {
     display: 'inline-block',
     fontSize: '16px',
     textAlign: 'center',
-    fontFamily: "'Nunito Sans', sans-serif',
+    fontFamily: "'Nunito Sans', sans-serif",
     boxShadow: '0 4px 15px rgba(255, 105, 180, 0.3)',
     position: 'relative',
     overflow: 'hidden',
@@ -304,7 +304,7 @@ const Gallery = () => {
           fontSize: 'clamp(32px, 8vw, 52px)', 
           marginBottom: '20px', 
           color: '#9370DB',
-          fontFamily: "'Playfair Display', serif',
+          fontFamily: "'Playfair Display', serif",
           fontWeight: '700',
           textShadow: '0 2px 10px rgba(147, 112, 219, 0.2)'
         }}>
@@ -481,7 +481,7 @@ const Gallery = () => {
           fontSize: 'clamp(28px, 6vw, 36px)', 
           marginBottom: '15px', 
           color: '#9370DB',
-          fontFamily: "'Playfair Display', serif',
+          fontFamily: "'Playfair Display', serif",
           fontWeight: '600',
         }}>
           Ready to Experience It in Person?
