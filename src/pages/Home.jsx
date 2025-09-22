@@ -4,9 +4,42 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   
   useEffect(() => {
     setIsVisible(true);
+    
+    // Preload all banner images
+    const preloadImages = () => {
+      const imageUrls = [
+        "/assets/image1.png",
+        "/assets/image2.png",
+        "/assets/image3.png",
+        "/assets/image4.png",
+        "/assets/image5.png"
+      ];
+      
+      const promises = imageUrls.map(url => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = url;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
+      
+      Promise.all(promises)
+        .then(() => {
+          setImagesLoaded(true);
+          console.log("All images preloaded successfully");
+        })
+        .catch(err => {
+          console.error("Error preloading images", err);
+          setImagesLoaded(true); // Continue even if some images fail
+        });
+    };
+    
+    preloadImages();
     
     // Auto-rotate banner slides
     const slideInterval = setInterval(() => {
@@ -60,7 +93,7 @@ const Home = () => {
       subtitle: "Your perfect getaway in Nakuru"
     },
     {
-      image: "./assets/image2.png",
+      image: "/assets/image2.png",
       title: "Stylish Interiors",
       subtitle: "Beautifully designed spaces"
     },
@@ -142,6 +175,47 @@ const Home = () => {
       position: 'relative',
       paddingTop: '80px'
     }}>
+      {/* Image preloading component (invisible) */}
+      <div style={{ display: 'none' }}>
+        {bannerSlides.map((slide, index) => (
+          <img 
+            key={`preload-${index}`}
+            src={slide.image} 
+            alt=""
+            onLoad={() => console.log(`Image ${index + 1} loaded`)}
+          />
+        ))}
+      </div>
+      
+      {/* Loading indicator */}
+      {!imagesLoaded && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(145deg, #fff0f5, #f3e5ff)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 9999,
+          flexDirection: 'column'
+        }}>
+          <div style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            background: 'linear-gradient(45deg, #FF69B4, #9370DB)',
+            animation: 'pulse 1.5s infinite',
+            marginBottom: '20px'
+          }}></div>
+          <p style={{ color: '#9370DB', fontWeight: 'bold' }}>
+            Loading amazing experiences...
+          </p>
+        </div>
+      )}
+      
       {/* Decorative elements */}
       <div style={{
         position: 'absolute',
@@ -205,15 +279,30 @@ const Home = () => {
               zIndex: currentSlide === index ? 1 : 0
             }}
           >
-            <img 
-              src={slide.image} 
-              alt={slide.title} 
-              style={{ 
-                width: '100%', 
-                height: '100%', 
-                objectFit: 'cover'
-              }}
-            />
+            {imagesLoaded ? (
+              <img 
+                src={slide.image} 
+                alt={slide.title} 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover'
+                }}
+              />
+            ) : (
+              <div style={{
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(135deg, #FF69B4, #9370DB)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                color: 'white',
+                fontSize: '20px'
+              }}>
+                Loading image...
+              </div>
+            )}
             <div style={{
               position: 'absolute',
               bottom: 0,
@@ -593,6 +682,12 @@ const Home = () => {
           0% { transform: translateY(0px); }
           50% { transform: translateY(-10px); }
           100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+          0% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.2); opacity: 0.7; }
+          100% { transform: scale(1); opacity: 1; }
         }
         
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap');

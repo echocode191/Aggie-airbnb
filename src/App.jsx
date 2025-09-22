@@ -9,8 +9,8 @@ import Location from './pages/Location';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
-// Simple full-screen loader
-const Loader = () => (
+// ---------- Loader ----------
+const Loader = ({ fadingOut }) => (
   <div
     style={{
       position: 'fixed',
@@ -18,7 +18,7 @@ const Loader = () => (
       left: 0,
       width: '100%',
       height: '100%',
-      background: 'rgba(255,240,245,0.9)',
+      background: 'linear-gradient(145deg,#fff0f5,#f3e5ff)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -26,19 +26,20 @@ const Loader = () => (
       fontFamily: "'Nunito Sans', sans-serif",
       fontSize: '1.5rem',
       color: '#9370DB',
+      transition: 'opacity 0.6s ease',
+      opacity: fadingOut ? 0 : 1
     }}
   >
-    Loading…
+    Welcome…
   </div>
 );
 
-// Watches route changes to trigger loader
+// ---------- Track route changes ----------
 const RouteChangeTracker = ({ setLoading }) => {
   const location = useLocation();
   useEffect(() => {
     setLoading(true);
-    // Small delay to simulate loading; adjust as needed
-    const timer = setTimeout(() => setLoading(false), 500);
+    const timer = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timer);
   }, [location, setLoading]);
   return null;
@@ -46,24 +47,53 @@ const RouteChangeTracker = ({ setLoading }) => {
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [fade, setFade] = useState(false);
 
-  // Initial page load loader
+  // List any images you want to be sure are cached before entry.
+  const imagesToPreload = [
+    '/logo.png',
+    '/hero.jpg',
+    '/gallery1.jpg',
+    '/gallery2.jpg',
+    '/rooms1.jpg'
+    // add more static paths here
+  ];
+
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 800);
-    return () => clearTimeout(timer);
+    // Preload images, then fade loader
+    let cancelled = false;
+
+    const preload = imagesToPreload.map(
+      src =>
+        new Promise(resolve => {
+          const img = new Image();
+          img.src = src;
+          img.onload = img.onerror = resolve;
+        })
+    );
+
+    Promise.all(preload).then(() => {
+      if (!cancelled) {
+        setFade(true);               // start fade out
+        setTimeout(() => setLoading(false), 600); // remove after fade
+      }
+    });
+
+    return () => { cancelled = true; };
   }, []);
 
   return (
     <Router>
       <RouteChangeTracker setLoading={setLoading} />
-      {loading && <Loader />}
+      {loading && <Loader fadingOut={fade} />}
+
       <div
         style={{
           fontFamily: "'Nunito Sans', sans-serif",
           background: 'linear-gradient(145deg, #fff0f5, #f3e5ff)',
           minHeight: '100vh',
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'column'
         }}
       >
         <Navbar />
@@ -75,7 +105,6 @@ function App() {
             <Route path="/location" element={<Location />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            {/* Catch-all route */}
             <Route
               path="*"
               element={
@@ -84,7 +113,7 @@ function App() {
                     textAlign: 'center',
                     padding: '4rem 1rem',
                     fontSize: '1.25rem',
-                    color: '#555',
+                    color: '#555'
                   }}
                 >
                   404 – Page Not Found
