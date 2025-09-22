@@ -60,7 +60,7 @@ const Home = () => {
       subtitle: "Your perfect getaway in Nakuru"
     },
     {
-      image: "/assets/image2.png",
+      image: "./assets/image2.png",
       title: "Stylish Interiors",
       subtitle: "Beautifully designed spaces"
     },
