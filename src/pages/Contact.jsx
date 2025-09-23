@@ -55,7 +55,6 @@ const Contact = () => {
   const handleInputChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  /** open WhatsApp with the filled message */
   const sendToWhatsApp = () => {
     const text = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
@@ -63,7 +62,6 @@ const Contact = () => {
     window.open(`https://wa.me/254727012403?text=${text}`, '_blank');
   };
 
-  /** open default SMS app with the filled message */
   const sendToSMS = () => {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
@@ -123,26 +121,48 @@ const Contact = () => {
           />
 
           <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginTop: '10px' }}>
-            <button type="button" style={{ ...buttonStyle, flex: 1, background: 'linear-gradient(45deg,#25D366,#128C7E)' }}
-              onClick={sendToWhatsApp}>
+            <button
+              type="button"
+              style={{ ...buttonStyle, flex: 1, background: 'linear-gradient(45deg,#25D366,#128C7E)' }}
+              onClick={sendToWhatsApp}
+            >
               Send via WhatsApp
             </button>
-            <button type="button" style={{ ...buttonStyle, flex: 1 }}
-              onClick={sendToSMS}>
+            <button
+              type="button"
+              style={{ ...buttonStyle, flex: 1 }}
+              onClick={sendToSMS}
+            >
               Send via SMS
             </button>
           </div>
         </form>
       </section>
 
+      {/* ===== About Developer ===== */}
+      <section style={{
+        ...glassStyle,
+        maxWidth: '800px',
+        margin: '50px auto 0',
+        padding: '30px',
+        textAlign: 'center'
+      }}>
+        <h2 style={{ color: '#9370DB', marginBottom: '15px', fontSize: '24px' }}>About the Developer</h2>
+        <p style={{ color: '#555', fontSize: '16px', marginBottom: '0' }}>
+          Hi, I’m <strong>Agent Kim</strong> – a passionate web developer focused on creating
+          modern, responsive, and user-friendly websites for businesses and personal brands.
+          I love turning ideas into elegant digital experiences.
+        </p>
+      </section>
+
       {/* ===== Developer Credit ===== */}
       <footer style={{
-        marginTop: '60px',
+        marginTop: '40px',
         textAlign: 'center',
         color: '#555',
         fontSize: '14px'
       }}>
-        Developed by <span style={{ color: '#9370DB', fontWeight: 600 }}>Agent Kim</span>
+        © {new Date().getFullYear()} Developed by <span style={{ color: '#9370DB', fontWeight: 600 }}>Agent Kim</span>
       </footer>
     </div>
   );
