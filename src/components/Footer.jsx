@@ -13,7 +13,7 @@ const Footer = () => {
     maxWidth: '1200px',
     margin: '0 auto',
     display: 'grid',
-    gridTemplateColumns: ['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)'].map((val, i) => val),
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
     gap: '30px'
   };
 
@@ -47,7 +47,8 @@ const Footer = () => {
     marginTop: '40px',
     paddingTop: '20px',
     borderTop: '1px solid rgba(255, 255, 255, 0.2)',
-    fontSize: '14px'
+    fontSize: '14px',
+    lineHeight: '1.6'
   };
 
   return (
@@ -66,7 +67,7 @@ const Footer = () => {
             <a href="mailto:agneskarime68@gmail.com" target="_blank" rel="noopener noreferrer" style={socialIconStyle}>✉️</a>
           </div>
         </div>
-        
+
         <div style={columnStyle}>
           <h3 style={headingStyle}>Quick Links</h3>
           <Link to="/" style={linkStyle}>Home</Link>
@@ -75,7 +76,7 @@ const Footer = () => {
           <Link to="/location" style={linkStyle}>Location</Link>
           <Link to="/about" style={linkStyle}>About</Link>
         </div>
-        
+
         <div style={columnStyle}>
           <h3 style={headingStyle}>Contact Us</h3>
           <p style={linkStyle}>📞 0727-012-403</p>
@@ -83,14 +84,14 @@ const Footer = () => {
           <p style={linkStyle}>✉️ agneskarime68@gmail.com</p>
           <Link to="/contact" style={linkStyle}>Contact Form</Link>
         </div>
-        
+
         <div style={columnStyle}>
           <h3 style={headingStyle}>Location</h3>
           <p style={linkStyle}>BISMACk WHITEHOUSE NAKURU</p>
           <p style={linkStyle}>Conveniently Close to Nakuru Town</p>
-          <a 
-            href="https://maps.app.goo.gl/hD8XKTmJt52YnzpS9" 
-            target="_blank" 
+          <a
+            href="https://maps.app.goo.gl/hD8XKTmJt52YnzpS9"
+            target="_blank"
             rel="noopener noreferrer"
             style={linkStyle}
           >
@@ -98,9 +99,11 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      
+
       <div style={copyrightStyle}>
-        © {new Date().getFullYear()} Aggie Airbnb. All rights reserved. Designed with ❤️ for comfort.
+        © {new Date().getFullYear()} Aggie Airbnb. All rights reserved.  
+        Designed by <strong>Kim – Zoka Digital</strong>.  
+        WhatsApp: <a href="https://wa.me/254721635810" style={{ color: 'white', textDecoration: 'underline' }}>0721635810</a>
       </div>
     </footer>
   );
