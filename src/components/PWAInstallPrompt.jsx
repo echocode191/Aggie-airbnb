@@ -5,7 +5,7 @@ export default function PWAInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   useEffect(() => {
-    // show for first 10s regardless of install event
+    // Show immediately for 10 s or until dismissed
     setShowPrompt(true);
     const hideTimer = setTimeout(() => setShowPrompt(false), 10000);
 
@@ -26,62 +26,62 @@ export default function PWAInstallPrompt() {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.finally(() => setShowPrompt(false));
     } else {
-      // fallback for browsers without beforeinstallprompt
       setShowPrompt(false);
     }
   };
 
   if (!showPrompt) return null;
 
-  const baseStyle = {
+  const barStyle = {
+    position: 'fixed',
+    top: '10px',
     left: '50%',
     transform: 'translateX(-50%)',
     background: 'linear-gradient(135deg,#FF69B4,#9370DB)',
     color: '#fff',
-    padding: '10px 18px',
-    borderRadius: '40px',
-    boxShadow: '0 4px 20px rgba(255,105,180,0.4)',
+    padding: '8px 16px',
+    borderRadius: '30px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
     display: 'flex',
     alignItems: 'center',
-    gap: '12px',
+    gap: '10px',
+    fontSize: '14px',
     zIndex: 2000,
-    maxWidth: '90%',
     fontFamily: "'Nunito Sans', sans-serif",
-    animation: 'fadeSlide 0.5s ease-out',
+    animation: 'fadeSlide 0.4s ease-out',
   };
 
-  const buttonBase = {
+  const buttonStyle = {
     border: 'none',
     borderRadius: '20px',
-    padding: '6px 12px',
+    padding: '4px 10px',
     fontSize: '12px',
     cursor: 'pointer',
-    transition: 'all 0.3s ease',
     background: '#fff',
     color: '#FF69B4',
     fontWeight: 'bold'
   };
 
+  const closeStyle = {
+    cursor: 'pointer',
+    marginLeft: '6px',
+    fontSize: '16px',
+    fontWeight: 'bold'
+  };
+
   return (
     <>
-      {/* Top prompt */}
-      <div style={{ ...baseStyle, position: 'fixed', top: '20px' }}>
-        <span style={{ fontSize: 20 }}>📱</span>
+      <div style={barStyle}>
+        <span role="img" aria-label="phone">📱</span>
         <span>Install Aggie Airbnb for a better experience</span>
-        <button style={buttonBase} onClick={handleInstallClick}>Install</button>
-      </div>
-
-      {/* Bottom prompt */}
-      <div style={{ ...baseStyle, position: 'fixed', bottom: '20px' }}>
-        <span style={{ fontSize: 20 }}>📱</span>
-        <span>Install Aggie Airbnb for a better experience</span>
-        <button style={buttonBase} onClick={handleInstallClick}>Install</button>
+        <button style={buttonStyle} onClick={handleInstallClick}>Install</button>
+        <span style={closeStyle} onClick={() => setShowPrompt(false)}>×</span>
       </div>
 
       <style>{`
         @keyframes fadeSlide {
-          from {opacity:0; transform:translate(-50%,20px);}
-          to   {opacity:1; transform:translate(-50%,0);}
+          from {opacity:0; transform:translate(-50%, -10px);}
+          to   {opacity:1; transform:translate(-50%, 0);}
         }
       `}</style>
     </>
