@@ -3,60 +3,346 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
+  <!-- Primary Meta Tags -->
   <title>Aggie Airbnb | Your Home Away From Home in Nakuru</title>
   <meta name="description" content="Book spacious rooms at Bismack Whitehouse in Nakuru. Enjoy mountain views, modern amenities, and a family-friendly environment. Pet-friendly with flexible stay options." />
-  <meta name="keywords" content="Aggie Airbnb, Nakuru accommodation, Bismack Whitehouse, Nakuru rooms, mountain view, pet-friendly, family stays, Kenya vacation" />
+  <meta name="keywords" content="Aggie Airbnb, Nakuru accommodation, Bismack Whitehouse, Nakuru rooms, mountain view, pet-friendly, family stays, Kenya vacation, luxury stay, vacation rental, holiday home" />
   <meta name="author" content="Aggie Airbnb" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aggieairbnb.com/" />
 
-  <!-- Open Graph -->
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#9370DB" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Aggie Airbnb" />
+  <link rel="apple-touch-icon" href="/logo192.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aggieairbnb.com/" />
   <meta property="og:title" content="Aggie Airbnb | Your Home Away From Home in Nakuru" />
   <meta property="og:description" content="Discover comfortable stays at Bismack Whitehouse in Nakuru with mountain views and modern amenities. Book your perfect getaway today!" />
   <meta property="og:image" content="/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Aggie Airbnb Logo" />
+  <meta property="og:site_name" content="Aggie Airbnb" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://aggieairbnb.com/" />
-  <meta property="twitter:title" content="Aggie Airbnb | Your Home Away From Home in Nakuru" />
-  <meta property="twitter:description" content="Spacious rooms with mountain views in Nakuru. Pet-friendly with flexible stay options. Book via WhatsApp today!" />
-  <meta property="twitter:image" content="/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@AggieAirbnb" />
+  <meta name="twitter:creator" content="@AggieAirbnb" />
+  <meta name="twitter:url" content="https://aggieairbnb.com/" />
+  <meta name="twitter:title" content="Aggie Airbnb | Your Home Away From Home in Nakuru" />
+  <meta name="twitter:description" content="Spacious rooms with mountain views in Nakuru. Pet-friendly with flexible stay options. Book via WhatsApp today!" />
+  <meta name="twitter:image" content="/logo.png" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="Aggie Airbnb Logo" />
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" href="/logo.png" />
-  <meta name="theme-color" content="#9370DB" />
+  <link rel="apple-touch-icon" href="/logo192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/logo180.png" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#9370DB" />
 
-  <!-- Fonts -->
+  <!-- DNS Prefetching for Performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="//maps.googleapis.com" />
+  <link rel="dns-prefetch" href="//wa.me" />
+
+  <!-- Preconnect to Critical Resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://maps.googleapis.com" />
 
-  <!-- Local Business Schema -->
+  <!-- Resource Hints -->
+  <link rel="preload" href="/logo192.png" as="image" />
+  <link rel="preload" href="/assets/image1.png" as="image" />
+  <link rel="preload" href="/assets/image2.png" as="image" />
+  <link rel="preload" href="assets/image3.png" as="image" />
+  <link rel="preload" href="/assets/image4.png" as="image" />
+  <link rel="preload" href="/assets/image5.png" as="image" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" />
+  </noscript>
+
+  <!-- Critical CSS Inline (for faster first paint) -->
+  <style>
+    /* Critical CSS for above-the-fold content */
+    body {
+      margin: 0;
+      font-family: 'Nunito Sans', sans-serif;
+      background: linear-gradient(145deg, #fff0f5, #f3e5ff);
+      color: #333;
+      overflow-x: hidden;
+    }
+    
+    #root {
+      min-height: 100vh;
+    }
+    
+    /* Loading state styles */
+    .initial-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #fff0f5, #f3e5ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      font-family: 'Nunito Sans', sans-serif;
+      color: #9370DB;
+      font-size: 1.5rem;
+    }
+    
+    /* Prevent flash of unstyled content */
+    .no-js #root {
+      display: none;
+    }
+    
+    .no-js .initial-loader {
+      display: flex;
+    }
+    
+    .no-js .no-js-message {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #fff0f5, #f3e5ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .no-js .no-js-message h1 {
+      color: #9370DB;
+      margin-bottom: 20px;
+    }
+    
+    .no-js .no-js-message p {
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+    
+    .no-js .no-js-message a {
+      color: #FF69B4;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Enhanced Local Business Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "Aggie Airbnb",
+    "description": "Book spacious rooms at Bismack Whitehouse in Nakuru with mountain views and modern amenities.",
     "image": "https://aggieairbnb.com/logo.png",
     "url": "https://aggieairbnb.com/",
     "telephone": "+254727012403",
     "email": "agneskarime68@gmail.com",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Bismack Whitehouse, Mountain View Area",
       "addressLocality": "Nakuru",
+      "addressRegion": "Nakuru County",
+      "postalCode": "20100",
       "addressCountry": "KE"
     },
-    "priceRange": "$$",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -0.3031,
+      "longitude": 36.0686
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
     "sameAs": [
       "https://wa.me/254727012403",
-      "https://maps.app.goo.gl/hD8XKTmJt52YnzpS9"
+      "https://maps.app.goo.gl/hD8XKTmJt52YnzpS9",
+      "https://www.facebook.com/AggieAirbnb",
+      "https://www.instagram.com/AggieAirbnb"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "42"
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Accommodation",
+          "name": "One Room",
+          "description": "Cozy space for solo travelers or couples"
+        },
+        "price": "3000",
+        "priceCurrency": "KES"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Accommodation",
+          "name": "Two Rooms",
+          "description": "Perfect for small families or friends"
+        },
+        "price": "5000",
+        "priceCurrency": "KES"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Accommodation",
+          "name": "Three Rooms",
+          "description": "Spacious for larger groups or families"
+        },
+        "price": "8000",
+        "priceCurrency": "KES"
+      }
+    ],
+    "amenityFeature": [
+      "3 Spacious Bedrooms",
+      "Fully Equipped Kitchen",
+      "Smart TV & WiFi",
+      "Family-Friendly Living",
+      "Pet Friendly",
+      "Flexible Stay Options",
+      "Mountain Views",
+      "Security Cameras"
+    ]
+  }
+  </script>
+
+  <!-- Website Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Aggie Airbnb",
+    "url": "https://aggieairbnb.com/",
+    "description": "Book spacious rooms at Bismack Whitehouse in Nakuru with mountain views and modern amenities.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aggie Airbnb",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aggieairbnb.com/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://aggieairbnb.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://aggieairbnb.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Accommodation",
+        "item": "https://aggieairbnb.com/rooms"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Gallery",
+        "item": "https://aggieairbnb.com/gallery"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Location",
+        "item": "https://aggieairbnb.com/location"
+      }
     ]
   }
   </script>
 </head>
-<body style="margin:0; font-family:'Nunito Sans',sans-serif; background:linear-gradient(145deg,#fff0f5,#f3e5ff); color:#333;">
+<body>
+  <!-- Initial loading state -->
+  <div class="initial-loader" id="initial-loader">Welcome to Aggie Airbnb…</div>
+  
+  <!-- No-JS fallback -->
+  <noscript>
+    <div class="no-js-message">
+      <h1>JavaScript is Disabled</h1>
+      <p>Aggie Airbnb requires JavaScript to function properly. Please enable JavaScript in your browser settings and refresh the page.</p>
+      <p>If you need assistance, please contact us at <a href="mailto:agneskarime68@gmail.com">agneskarime68@gmail.com</a> or call <a href="tel:+254727012403">+254727012403</a>.</p>
+    </div>
+  </noscript>
+  
+  <!-- Main app container -->
   <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  
+  <!-- Critical JavaScript (non-blocking) -->
+  <script>
+    // Hide initial loader once React loads
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const loader = document.getElementById('initial-loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(function() {
+            loader.style.display = 'none';
+          }, 600);
+        }
+      }, 100);
+    });
+    
+    // Basic error tracking
+    window.addEventListener('error', function(e) {
+      console.error('Page error:', e.message);
+      // You could send this to an error tracking service
+    });
+  </script>
+  
+  <!-- Main application script (deferred for performance) -->
+  <script type="module" src="/src/main.jsx" defer></script>
 </body>
 </html>

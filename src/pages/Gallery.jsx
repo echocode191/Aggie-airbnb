@@ -14,17 +14,17 @@ const Gallery = () => {
     const preloadImages = () => {
       const imageUrls = [
         "/assets/image9.png",
-        "/assets/image10.png",
-        "/assets/image11.png",
-        "/assets/image12.png",
-        "/assets/image13.png",
-        "/assets/image14.png",
         "/assets/image15.png",
+        "/assets/image8.png",
+        "/assets/image24.png",
+        "/assets/image3.png",
+        "/assets/image12.png",
+        "/assets/image14.png",
         "/assets/image16.png",
-        "/assets/image17.png",
+        "/assets/image25.png",
         "/assets/image18.png",
-        "/assets/image19.png",
-        "/assets/image20.png"
+        "/assets/image20.png",
+        "/assets/image2.png"
       ];
       
       let loadedCount = 0;
@@ -93,13 +93,13 @@ const Gallery = () => {
     },
     {
       id: 2,
-      src: "/assets/image10.png",
+      src: "/assets/image15.png",
       category: "Bedroom",
       title: "Comfortable master bedroom"
     },
     {
       id: 3,
-      src: "/assets/image11.png",
+      src: "/assets/image8.png",
       category: "Kitchen",
       title: "Fully equipped kitchen"
     },
@@ -111,19 +111,19 @@ const Gallery = () => {
     },
     {
       id: 5,
-      src: "/assets/image13.png",
+      src: "/assets/image24.png",
       category: "Exterior",
       title: "Beautiful property exterior"
     },
     {
       id: 6,
-      src: "/assets/image14.png",
+      src: "/assets/image12.png",
       category: "Bedroom",
       title: "Cozy second bedroom"
     },
     {
       id: 7,
-      src: "/assets/image15.png",
+      src: "/assets/image3.png",
       category: "Living Room",
       title: "Entertainment area"
     },
@@ -135,19 +135,19 @@ const Gallery = () => {
     },
     {
       id: 9,
-      src: "/assets/image17.png",
+      src: "/assets/image14.png",
       category: "Bathroom",
       title: "Ensuite bathroom"
     },
     {
       id: 10,
-      src: "/assets/image18.png",
+      src: "/assets/image25.png",
       category: "Exterior",
       title: "Garden view"
     },
     {
       id: 11,
-      src: "/assets/image19.png",
+      src: "/assets/image18.png",
       category: "Bedroom",
       title: "Third bedroom"
     },

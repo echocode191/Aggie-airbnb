@@ -1,9 +1,25 @@
 {
-  "name": "Aggie Airbnb",
-  "short_name": "AggieAirbnb",
-  "start_url": "/",
+  "short_name": "Aggie Airbnb",
+  "name": "Aggie Airbnb - Your Home Away From Home in Nakuru",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#9370DB",
   "theme_color": "#9370DB",
-  "icons": []
+  "background_color": "#fff0f5",
+  "orientation": "portrait-primary",
+  "scope": ".",
+  "description": "Book spacious rooms at Bismack Whitehouse in Nakuru with mountain views and modern amenities.",
+  "categories": ["travel", "lodging", "vacation"],
+  "lang": "en"
 }
