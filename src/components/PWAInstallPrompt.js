@@ -31,7 +31,7 @@ export default function PWAInstallPrompt() {
 
   if (!showPrompt) return null;
 
-  // ✅ Define all style objects before the JSX return
+  // Define all style objects before the JSX return
   const containerStyle = {
     position: 'fixed',
     bottom: '20px',
@@ -66,8 +66,8 @@ export default function PWAInstallPrompt() {
   };
 
   return (
-    <div style={containerStyle}>
-      <div style={textBlockStyle}>
+    <div style={{containerStyle}}>
+      <div style={{textBlockStyle}}>
         <span style={{ fontSize: '20px' }}>📱</span>
         <div>
           <div style={{ fontWeight: 'bold', fontSize: '14px' }}>Install Aggie Airbnb</div>
