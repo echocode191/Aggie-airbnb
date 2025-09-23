@@ -66,7 +66,7 @@ const Rooms = () => {
       price: "KSH 8000",
       image: "/assets/image8.png",
       description: "Our largest accommodation option with three spacious bedrooms, perfect for larger groups or extended families.",
-      features: ["Three spacious bedrooms", "Two bathrooms", "Large living area", "Dining area", "Full kitchen access", "Smart TV", "High-speed WiFi", "Washing machine"],
+      features: ["Three spacious bedrooms", "Three bathrooms", "Large living area", "Dining area", "Full kitchen access", "Smart TV", "High-speed WiFi", "Washing machine"],
       size: "75 sqm"
     }
   ];
