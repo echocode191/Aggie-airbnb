@@ -11,6 +11,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 
 // ---------- Loader ----------
+// ---------- Loader ----------
 const Loader = ({ fadingOut }) => (
   <div
     style={{
@@ -30,6 +31,26 @@ const Loader = ({ fadingOut }) => (
       opacity: fadingOut ? 0 : 1
     }}
   >
+    {/* Announcement Banner */}
+    <div
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        background: 'linear-gradient(90deg, #FF69B4, #9370DB)',
+        color: 'white',
+        textAlign: 'center',
+        padding: '12px 20px',
+        fontSize: '16px',
+        fontWeight: '600',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+        zIndex: 10000
+      }}
+    >
+      🚀 Our aggieairbnb.co.ke will be live in 48hrs
+    </div>
+
     <div
       style={{
         width: '80px',
@@ -71,7 +92,6 @@ const Loader = ({ fadingOut }) => (
     </style>
   </div>
 );
-
 // ---------- Track route changes for mini-loader ----------
 const RouteChangeTracker = ({ setLoading }) => {
   const location = useLocation();
