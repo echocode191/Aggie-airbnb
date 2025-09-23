@@ -10,11 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@sentry/react": "^10.13.0",
+    "framer-motion": "^12.23.18",
     "leaflet": "^1.9.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-lazy-load-image-component": "^1.6.3",
     "react-leaflet": "^5.0.0",
-    "react-router-dom": "^7.9.1"
+    "react-router-dom": "^7.9.1",
+    "web-vitals": "^5.1.0",
+    "workbox-webpack-plugin": "^7.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
