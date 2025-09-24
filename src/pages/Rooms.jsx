@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+              import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Rooms = () => {
@@ -57,7 +57,7 @@ const Rooms = () => {
       price: "KSH 5000",
       image: "/assets/image7.png",
       description: "Spacious accommodation with two separate rooms, ideal for small families or friends traveling together.",
-      features: ["Two comfortable bedrooms", "Shared bathroom", "Living area", "Smart TV", "High-speed WiFi", "Kitchen access"],
+      features: ["Two comfortable bedrooms", "Each room has a bathroom", "Living area", "Smart TV", "High-speed WiFi", "Kitchen access"],
       size: "45 sqm"
     },
     {
